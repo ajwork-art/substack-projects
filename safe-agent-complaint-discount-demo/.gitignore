@@ -1,0 +1,23 @@
+# Environment — never commit real secrets
+.env
+
+# Claude Code session data
+.claude/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Streamlit
+.streamlit/
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/

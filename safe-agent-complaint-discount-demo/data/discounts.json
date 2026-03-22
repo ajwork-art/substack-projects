@@ -1,0 +1,14 @@
+[
+  {
+    "order_id": "ORD-1001",
+    "discount_pct": 20,
+    "status": "draft",
+    "reason": "Customer received a damaged KitchenPro Blender (cracked jar). Issue type 'damaged' is eligible per policy. Product is discount-eligible. Order is within the 30-day window. Severity is high and customer sentiment is frustrated with retention risk. Recommending maximum allowable discount of 20% in line with policy cap."
+  },
+  {
+    "order_id": "ORD-1001",
+    "discount_pct": 20,
+    "status": "draft",
+    "reason": "Customer received a damaged KitchenPro Blender (cracked jar) \u2014 issue type 'damaged' is eligible per policy. Severity is high, customer sentiment is frustrated, and triage recommends escalation. Product is discount-eligible. Applying maximum allowable discount of 20% given the high severity and urgency. Discount is draft-only per policy default."
+  }
+]
