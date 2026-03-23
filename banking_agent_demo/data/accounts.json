@@ -1,0 +1,18 @@
+[
+  {
+    "account_id": "A100",
+    "customer_id": "U100",
+    "name": "Maya Patel",
+    "balance": 142.18,
+    "mailing_address": "48 Camelback Road, Phoenix, AZ",
+    "fee_status": "overdraft_fee_open"
+  },
+  {
+    "account_id": "A200",
+    "customer_id": "U200",
+    "name": "Jordan Lee",
+    "balance": 892.44,
+    "mailing_address": "212 River Street, Tempe, AZ",
+    "fee_status": "none"
+  }
+]

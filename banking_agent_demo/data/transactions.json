@@ -1,0 +1,36 @@
+{
+  "A100": [
+    {
+      "transaction_id": "TX9001",
+      "merchant": "Valley Grocer",
+      "amount": -54.22,
+      "status": "posted"
+    },
+    {
+      "transaction_id": "TX9002",
+      "merchant": "Valley Grocer",
+      "amount": -54.22,
+      "status": "pending"
+    },
+    {
+      "transaction_id": "TX9003",
+      "merchant": "Monthly Salary",
+      "amount": 1200.0,
+      "status": "posted"
+    }
+  ],
+  "A200": [
+    {
+      "transaction_id": "TX9101",
+      "merchant": "City Transit",
+      "amount": -24.1,
+      "status": "posted"
+    },
+    {
+      "transaction_id": "TX9102",
+      "merchant": "North Market",
+      "amount": -88.75,
+      "status": "posted"
+    }
+  ]
+}
