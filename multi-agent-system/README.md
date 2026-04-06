@@ -139,28 +139,31 @@ Get a key at [console.anthropic.com](https://console.anthropic.com). The demo us
 
 ## Running the Demos
 
-### Success Path
-Shows the complete workflow: Triage → Policy → Action
+### Option 1: Web UI (recommended)
+Run the interactive browser demo — submit a complaint, watch the pipeline execute step by step:
 ```bash
-npm run demo:success
+npm run web
 ```
+Then open `http://localhost:3000` in your browser.
 
+### Option 2: Terminal
+
+**Full flow** — complete workflow: Triage → Policy → Action
+```bash
+npm run demo:full
+```
 Output: All handoffs validated, scope reduced, identities reissued, full trace recorded.
 
-### Retry Failure (Before Safeguards)
-Shows what breaks without idempotency keys and loop guards
+**Retry failure** — shows what breaks without idempotency keys and loop guards
 ```bash
-npm run demo:retry-failure
+npm run demo:retry-fail
 ```
-
 Output: Duplicate fee reversal applied.
 
-### Retry Protected (With Safeguards)
-Shows the same scenario handled safely
+**Retry with guards** — shows the same scenario handled safely
 ```bash
-npm run demo:retry-protected
+npm run demo:retry-guard
 ```
-
 Output: Retry prevented by idempotency key.
 
 ## Running Tests
@@ -310,9 +313,9 @@ web/
 │   └── styles.css     # Layout and stage styling
 ```
 
-### To Add LLM-Powered Agents
+### How the Web UI Works
 
-The web version makes it straightforward to swap in real LLM agents. In `src/agents/`, replace the rule-based logic in any agent with a Claude API call. The governance layer — handoff contracts, scope reduction, idempotency keys — stays unchanged. The UI will reflect whatever the agent returns.
+The web server in `web/server.js` wraps the same agent pipeline used by the terminal demos. All three agents call Claude via the Anthropic API — the web UI simply renders each stage's output (handoff contracts, scope reduction, approval request) as expandable cards. The governance layer is unchanged.
 
 ## Production Considerations
 
