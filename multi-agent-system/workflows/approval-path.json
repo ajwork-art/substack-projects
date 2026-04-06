@@ -1,0 +1,30 @@
+{
+  "name": "approval-path",
+  "nodes": [
+    {
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        240,
+        300
+      ]
+    },
+    {
+      "name": "Read Pending Approval",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        500,
+        300
+      ]
+    },
+    {
+      "name": "Approve Action",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        760,
+        300
+      ]
+    }
+  ],
+  "connections": {}
+}

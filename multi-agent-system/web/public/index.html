@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multi-Agent Banking Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Multi-Agent Banking Demo</h1>
+      <p>Submit a customer complaint and watch the agent pipeline execute step by step.</p>
+    </header>
+
+    <div class="input-card">
+      <label for="complaint">Customer Complaint</label>
+      <textarea
+        id="complaint"
+        placeholder="e.g. I keep getting hit with overdraft fees. I also saw duplicate grocery charges. I may switch banks."
+      >I keep getting hit with overdraft fees. I also saw duplicate grocery charges. I may switch banks if this isn't resolved.</textarea>
+
+      <div class="input-row">
+        <input id="account-id" type="text" placeholder="Account ID (optional, e.g. A100)" />
+        <input id="user-id"    type="text" placeholder="User ID (optional, e.g. maya-789)" />
+      </div>
+
+      <button id="run-btn">Run Pipeline</button>
+    </div>
+
+    <div id="error-banner"></div>
+
+    <div id="pipeline" class="pipeline"></div>
+
+    <div id="summary"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

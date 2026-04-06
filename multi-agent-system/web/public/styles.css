@@ -1,0 +1,357 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #0f1117;
+  color: #e1e4e8;
+  min-height: 100vh;
+  padding: 32px 16px;
+}
+
+.container {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+header {
+  margin-bottom: 36px;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #f0f6fc;
+  margin-bottom: 4px;
+}
+
+header p {
+  font-size: 0.875rem;
+  color: #8b949e;
+}
+
+.input-card {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 28px;
+}
+
+.input-card label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #8b949e;
+  margin-bottom: 8px;
+}
+
+.input-card textarea {
+  width: 100%;
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #e1e4e8;
+  font-family: inherit;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  padding: 12px;
+  resize: vertical;
+  min-height: 90px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.input-card textarea:focus {
+  border-color: #388bfd;
+}
+
+.input-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.input-row input {
+  flex: 1;
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #e1e4e8;
+  font-family: inherit;
+  font-size: 0.875rem;
+  padding: 8px 12px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.input-row input:focus {
+  border-color: #388bfd;
+}
+
+.input-row input::placeholder {
+  color: #484f58;
+}
+
+button#run-btn {
+  margin-top: 16px;
+  width: 100%;
+  padding: 11px;
+  background: #238636;
+  border: 1px solid #2ea043;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+button#run-btn:hover:not(:disabled) {
+  background: #2ea043;
+}
+
+button#run-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#error-banner {
+  background: #3d1f1f;
+  border: 1px solid #f85149;
+  border-radius: 6px;
+  color: #f85149;
+  font-size: 0.875rem;
+  padding: 10px 14px;
+  margin-bottom: 20px;
+  display: none;
+}
+
+.pipeline {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.connector {
+  width: 2px;
+  height: 20px;
+  background: #30363d;
+  margin: 0 auto;
+}
+
+.stage-card {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.stage-card.done {
+  border-color: #238636;
+}
+
+.stage-card.error {
+  border-color: #f85149;
+}
+
+.stage-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.stage-header:hover {
+  background: #1c2128;
+}
+
+.stage-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stage-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #21262d;
+  border: 2px solid #30363d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #8b949e;
+  flex-shrink: 0;
+}
+
+.stage-card.done .stage-icon {
+  background: #1a3828;
+  border-color: #238636;
+  color: #3fb950;
+}
+
+.stage-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #f0f6fc;
+}
+
+.stage-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+  background: #21262d;
+  color: #8b949e;
+}
+
+.stage-card.done .stage-badge {
+  background: #1a3828;
+  color: #3fb950;
+}
+
+.stage-card.loading .stage-badge {
+  background: #1c2e4a;
+  color: #388bfd;
+}
+
+.chevron {
+  font-size: 0.75rem;
+  color: #484f58;
+  transition: transform 0.2s;
+}
+
+.stage-card.open .chevron {
+  transform: rotate(180deg);
+}
+
+.stage-body {
+  display: none;
+  padding: 0 18px 16px;
+  border-top: 1px solid #21262d;
+}
+
+.stage-card.open .stage-body {
+  display: block;
+}
+
+.kv-grid {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 6px 12px;
+  margin-top: 14px;
+  font-size: 0.875rem;
+}
+
+.kv-label {
+  color: #8b949e;
+  font-weight: 500;
+  padding-top: 2px;
+}
+
+.kv-value {
+  color: #e1e4e8;
+  word-break: break-word;
+}
+
+.kv-value.mono {
+  font-family: 'SF Mono', 'Consolas', monospace;
+  font-size: 0.8rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge.high    { background: #3d1f1f; color: #f85149; }
+.badge.medium  { background: #2d2208; color: #e3b341; }
+.badge.low     { background: #1a3828; color: #3fb950; }
+.badge.green   { background: #1a3828; color: #3fb950; }
+.badge.blue    { background: #1c2e4a; color: #79c0ff; }
+.badge.gray    { background: #21262d; color: #8b949e; }
+
+.detail-toggle {
+  margin-top: 14px;
+  font-size: 0.8rem;
+  color: #388bfd;
+  cursor: pointer;
+  text-decoration: underline;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.detail-toggle:hover {
+  color: #58a6ff;
+}
+
+.json-block {
+  display: none;
+  margin-top: 10px;
+  background: #0d1117;
+  border: 1px solid #21262d;
+  border-radius: 6px;
+  padding: 12px;
+  font-family: 'SF Mono', 'Consolas', monospace;
+  font-size: 0.775rem;
+  color: #8b949e;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.5;
+}
+
+.json-block.visible {
+  display: block;
+}
+
+.summary-card {
+  background: #1a3828;
+  border: 1px solid #238636;
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin-top: 20px;
+}
+
+.summary-card h3 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #3fb950;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.summary-card .kv-grid {
+  margin-top: 0;
+}
+
+.spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #30363d;
+  border-top-color: #388bfd;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

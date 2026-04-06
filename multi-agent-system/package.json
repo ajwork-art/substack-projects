@@ -1,0 +1,39 @@
+{
+  "name": "multi-agent-banking-demo",
+  "version": "1.0.0",
+  "description": "Governance at multi-agent handoff boundaries. Issue 4 reference implementation.",
+  "main": "demo/full-flow.js",
+  "type": "commonjs",
+  "scripts": {
+    "demo:full": "node demo/full-flow.js",
+    "demo:retry-fail": "node demo/retry-failure.js",
+    "demo:retry-guard": "node demo/retry-with-guards.js",
+    "test": "node test/run-all-tests.js",
+    "test:duplicate": "node test/duplicate-action.test.js",
+    "test:scope": "node test/scope-expansion.test.js",
+    "test:trace": "node test/trace-continuity.test.js",
+    "test:identity": "node test/identity-revalidation.test.js",
+    "test:memory": "node test/memory-segmentation.test.js",
+    "test:loops": "node test/loop-guard.test.js",
+    "web": "node web/server.js",
+    "clean": "rm -f data/*.json && node scripts/init-data.js"
+  },
+  "keywords": [
+    "multi-agent",
+    "handoffs",
+    "governance",
+    "banking",
+    "scope-reduction",
+    "trace-continuity"
+  ],
+  "author": "IBM Chief AI Architect",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.0",
+    "dotenv": "^16.4.5",
+    "express": "^5.2.1"
+  }
+}

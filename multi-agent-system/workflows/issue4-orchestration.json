@@ -1,0 +1,46 @@
+{
+  "name": "issue4-orchestration",
+  "nodes": [
+    {
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        240,
+        300
+      ]
+    },
+    {
+      "name": "Triage Agent",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        500,
+        300
+      ]
+    },
+    {
+      "name": "Policy Specialist",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        760,
+        300
+      ]
+    },
+    {
+      "name": "Action Agent",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        1020,
+        300
+      ]
+    },
+    {
+      "name": "Approval Branch",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        1280,
+        300
+      ]
+    }
+  ],
+  "connections": {}
+}
